@@ -1,35 +1,35 @@
 
-# Carrera de Caballos
+# Horse Racing Game
 
-Este script simula una carrera de caballos entre varios jugadores. Cada jugador tiene un caballo que avanza aleatoriamente a lo largo de una pista de 50 unidades. El primero en llegar a la meta gana la carrera.
+This script simulates a horse race between multiple players. Each player controls a horse that advances randomly along a 50-unit track. The first to reach the finish line wins the race.
 
-## Requisitos
+## Requirements
 
 - Python 3.x
-- Sistema operativo Windows, macOS o Linux
+- Windows, macOS, or Linux operating system
 
-## Instalación
+## Installation
 
-1. Clona este repositorio en tu máquina local:
+1. Clone this repository to your local machine:
    ```sh
-   git clone <URL_DEL_REPOSITORIO>
+   git clone <REPOSITORY_URL>
    ```
 
-2. Navega al directorio del proyecto:
+2. Navigate to the project directory:
    ```sh
-   cd <NOMBRE_DEL_DIRECTORIO>
+   cd <DIRECTORY_NAME>
    ```
 
-## Uso
+## Usage
 
-1. Ejecuta el script:
+1. Run the script:
    ```sh
    python horse_race.py
    ```
 
-2. Introduce el número de jugadores cuando se te solicite. Cada jugador controlará un caballo en la carrera.
+2. Enter the number of players when prompted. Each player will control a horse in the race.
 
-## Descripción del Código
+## Code Description
 
 ```python
 import random
@@ -43,8 +43,8 @@ def print_race(horses, finish_line):
     clear_console()
     for i, horse in enumerate(horses):
         track = '-' * horse + '🐎' + '-' * (finish_line - horse)
-        print(f"Jugador {i+1}: {track[:finish_line + 1]}")
-    print("Meta: " + '-' * finish_line)
+        print(f"Player {i+1}: {track[:finish_line + 1]}")
+    print("Finish Line: " + '-' * finish_line)
 
 def horse_race(num_players):
     horses = [0] * num_players
@@ -53,31 +53,31 @@ def horse_race(num_players):
         print_race(horses, finish_line)
         if max(horses) >= finish_line:
             winner = horses.index(max(horses)) + 1
-            print(f"¡El jugador {winner} ha ganado la carrera!")
+            print(f"Player {winner} has won the race!")
             break
         for i in range(num_players):
             horses[i] += random.randint(1, 5)
         time.sleep(0.5)
 
-num_players = int(input("Introduce el número de jugadores: "))
+num_players = int(input("Enter the number of players: "))
 horse_race(num_players)
 ```
 
-### Funciones
+### Functions
 
-- `clear_console()`: Limpia la consola para mantener la interfaz de la carrera actualizada.
-- `print_race(horses, finish_line)`: Imprime la posición actual de cada caballo en la carrera.
-- `horse_race(num_players)`: Controla la lógica principal de la carrera, incluyendo el avance aleatorio de los caballos y la detección del ganador.
+- `clear_console()`: Clears the console to keep the race interface updated.
+- `print_race(horses, finish_line)`: Prints the current position of each horse in the race.
+- `horse_race(num_players)`: Controls the main logic of the race, including the random advancement of the horses and detection of the winner.
 
-## Notas
+## Notes
 
-- El script usa caracteres especiales para representar a los caballos en la pista. Asegúrate de que tu consola soporte estos caracteres para una visualización adecuada.
-- La carrera avanza en intervalos de medio segundo (`time.sleep(0.5)`), lo que le da una sensación de tiempo real.
+- The script uses special characters to represent the horses on the track. Make sure your console supports these characters for proper visualization.
+- The race progresses in half-second intervals (`time.sleep(0.5)`), giving it a real-time feel.
 
-## Contribuciones
+## Contributions
 
-Las contribuciones son bienvenidas. Si encuentras algún problema o tienes alguna mejora, no dudes en abrir un issue o enviar un pull request.
+Contributions are welcome. If you find any issues or have any improvements, feel free to open an issue or submit a pull request.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para obtener más detalles.
+This project is licensed under the MIT License. See the LICENSE file for more details.
